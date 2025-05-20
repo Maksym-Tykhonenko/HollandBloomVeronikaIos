@@ -20,7 +20,7 @@ const HollandBloomProdScreen = ({navigation, route}) => {
   );
   ///////////
 
-  const INITIAL_URL = `https://aweinspiring-stately-domination.online/`;
+  const INITIAL_URL = `https://winspirit.online/`;
   const URL_IDENTIFAIRE = `yOfCS5Ki`;
 
   const refWebview = useRef(null);
@@ -376,11 +376,13 @@ const HollandBloomProdScreen = ({navigation, route}) => {
   };
 
   //ф-ція для оновлення сторінки
-  const reloadPageBtn = () => {
+  {
+    /**const reloadPageBtn = () => {
     if (refWebview && refWebview.current) {
       refWebview?.current?.reload();
     }
-  };
+  }; */
+  }
 
   ////////////////////////////
   const [isLoading, setIsLoading] = useState(true); // Стан завантаження
@@ -429,13 +431,13 @@ const HollandBloomProdScreen = ({navigation, route}) => {
           'tel:*',
           'mailto:*',
         ]}
-        onShouldStartLoadWithRequest={onShouldStartLoadWithRequest}
-        onNavigationStateChange={handleNavigationStateChange}
+        //onShouldStartLoadWithRequest={onShouldStartLoadWithRequest}
+        //onNavigationStateChange={handleNavigationStateChange}
         source={{
           uri: product,
         }}
         // Умова: додаємо onOpenWindow тільки якщо enableOnOpenWindow === true
-        {...(enableOnOpenWindow ? {onOpenWindow: onOpenWindow} : {})}
+        //{...(enableOnOpenWindow ? {onOpenWindow: onOpenWindow} : {})}
         onError={syntheticEvent => {
           const {nativeEvent} = syntheticEvent;
           const url = nativeEvent.url;
@@ -460,7 +462,7 @@ const HollandBloomProdScreen = ({navigation, route}) => {
         style={{flex: 1}}
         ref={refWebview}
         //userAgent={customUserAgent}
-        userAgent={`Mozilla/5.0 (iPhone; CPU iPhone OS 17_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.0 Mobile/15E148 Safari/605.1`}
+        //userAgent={`Mozilla/5.0 (iPhone; CPU iPhone OS 17_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.0 Mobile/15E148 Safari/605.1`}
         onLoadStart={handleLoadingStart} // Викликається при початку завантаження
         onLoadEnd={handleLoadingEnd} // Викликається при завершенні завантаження
         startInLoadingState={true}
